@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SKILLWILL HomeWork 5 JS</title>
+  </head>
+  <body>
+    <style>
+      input[type="radio"] {
+        display: none;
+      }
+
+      /* Custom radio button style */
+      .custom-radio {
+        display: inline-block;
+        position: relative;
+        padding-left: 35px;
+        margin-right: 20px;
+        cursor: pointer;
+        font-size: 18px;
+        user-select: none;
+      }
+
+      /* Create a custom radio button */
+      .custom-radio input[type="radio"] + .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+        border-radius: 50%;
+      }
+
+      /* On mouse-over, add a grey background color */
+      .custom-radio:hover input[type="radio"] + .checkmark {
+        background-color: #ccc;
+      }
+
+      /* When the radio button is checked, add a blue background */
+      .custom-radio input[type="radio"]:checked + .checkmark {
+        background-color: #f32121;
+      }
+
+      /* Create the indicator (the dot/circle - hidden when not checked) */
+      .custom-radio .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+
+      /* Show the indicator (dot/circle) when checked */
+      .custom-radio input[type="radio"]:checked + .checkmark:after {
+        display: block;
+      }
+
+      /* Style the indicator (dot/circle) */
+      .custom-radio .checkmark:after {
+        top: 9px;
+        left: 9px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: white;
+      }
+    </style>
+    <div id="div1">hello! I am george</div>
+    <button id="btn">Click me</button>
+
+    <div id="card">
+      <h2>Gandalf</h2>
+      <a href="#">Go to Profile</a>
+    </div>
+
+    <!-- ქვიზ თამაში -->
+    <h2>1:რომელი პროგრამირების ენა გამოყენება ფრონტენდის მხარეს?</h2>
+    <label class="custom-radio"
+      >Java
+      <input type="radio" name="radio" />
+      <span id="java" class="checkmark"></span>
+    </label>
+    <label class="custom-radio"
+      >Javascript
+      <input type="radio" name="radio" />
+      <span id="javascript" class="checkmark"></span>
+    </label>
+    <label class="custom-radio"
+      >Php
+      <input type="radio" name="radio" />
+      <span id="php" class="checkmark"></span>
+    </label>
+    <input type="submit" id="submit" />
+    <script>
+      //         შექმენი <button> და <div> ელემენტები და
+      // მიანიჭეთ საკუთარი უნიკალური id
+
+      document.getElementById("btn").onclick = function () {
+        if (document.getElementById("btn").innerText === "Click me") {
+          document.getElementById("div1").innerText =
+            "I am Student of Skillwill Academy";
+          document.getElementById("btn").innerText = "reset";
+        } else {
+          document.getElementById("div1").innerText = "";
+          document.getElementById("btn").innerText =
+            "Please refresh your web page";
+          btn.style.background = "red";
+          btn.style.color = "white";
+          btn.style.width = "300px";
+          btn.style.fontSize = "30px";
+          btn.style.height = "100px";
+        }
+      };
+
+      //       შექმენი შემდეგი სტრუქტურა JS -ის
+      // გამოყენებით და დაამატე DOM-ში:
+      // <div id=”card”>
+      // <h2>Gandalf</h2>
+      // <a href=”#”>Go to profile</a>
+      // </div>
+
+      document.getElementById("card");
+      document.getElementsByTagName("h2");
+      document.querySelector("a");
+
+      //   ქვიზ თამაში
+
+      document.getElementById("javascript").onclick = function () {
+        this.classList.add("selected");
+        javascript.style.background = "green";
+        document.getElementById("php").classList.remove("selected");
+        document.getElementById("java").classList.remove("selected");
+      };
+
+      document.getElementById("php").onclick = function () {
+        this.classList.add("selected");
+        javascript.style.background = "#ccc";
+        document.getElementById("javascript").classList.remove("selected");
+        document.getElementById("java").classList.remove("selected");
+      };
+
+      document.getElementById("java").onclick = function () {
+        this.classList.add("selected");
+        javascript.style.background = "#ccc";
+        document.getElementById("javascript").classList.remove("selected");
+        document.getElementById("php").classList.remove("selected");
+      };
+
+      document.getElementById("submit").onclick = function () {
+        if (
+          document.getElementById("php").classList.contains("selected") ||
+          document.getElementById("java").classList.contains("selected")
+        ) {
+          alert("თქვენი პასუზი არასწორია: თქვენ გაქვთ 0 ქულა");
+        } else {
+          alert("თქვენი პასუხი სწორია : თქვენ გაქვთ 1 ქულა");
+        }
+      };
+    </script>
+  </body>
+</html>
